@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: poppins;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url(assets/fonts/Poppins-SemiBold.ttf);
+}
+.navbar {
+  background: white;
+  background: green;
+  height: 100vh;
+  width: 100px;
+  position: relative;
+  transition: 300ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar .collapse-icon {
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 50%;
+  background: cyan;
+  position: absolute;
+  top: 10px;
+  right: -20px;
+  z-index: 10;
+  cursor: pointer;
+}
+.navbar ul {
+  width: 100%;
+}
+.navbar li {
+  padding: 0;
+  cursor: pointer;
+  margin-top: 50px;
+  border-radius: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.navbar li .menu {
+  padding: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar li .menu-icon {
+  margin-right: 10px;
+  transform: translate(45px);
+  width: 30px;
+  line-height: 0;
+  transition: 300ms;
+}
+.navbar li .menu-icon img {
+  width: 100%;
+}
+.navbar li .menu-title {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: transform 500ms;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: none;
+}
+.navbar li .dropdown-arrow {
+  width: 15px;
+  display: none;
+  margin-left: auto;
+  transform: rotate(180deg);
+  transition: 300ms;
+  line-height: 0;
+}
+.navbar li .dropdown-arrow img {
+  width: 100%;
+}
+.navbar .dropdown {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: height 300ms;
+  opacity: 0;
+  height: 0px;
+  transition: 300ms;
+}
+.navbar .dropdown a {
+  color: white;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.expand {
+  width: 300px;
+}
+.expand .collapse-icon {
+  transform: rotate(180deg);
+}
+.expand li {
+  padding: 0 40px;
+}
+.expand li .menu {
+  width: 100%;
+  padding: 10px 20px;
+  justify-content: start;
+}
+.expand li .menu .menu-icon {
+  width: 17px;
+  transform: translate(0);
+}
+.expand li .menu .menu-title {
+  opacity: 1;
+  transform: translate(0);
+}
+.expand li .menu .dropdown-arrow {
+  display: block;
+}
+.expand li .menu:hover {
+  background: #000;
+}
+.expand li .dropdown-arrow.show {
+  transform: rotate(0deg);
+}
+.expand li .drop {
+  padding: 10px;
+  height: auto;
+  opacity: 1;
+}
+.expand li .drop .dropdown-arrow {
+  transform: rotate(0deg);
+}
