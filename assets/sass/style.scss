@@ -1,10 +1,24 @@
 @import "variables";
 
+
+@font-face {
+  font-family: "Almarose-Regular";
+  src:  url('../fonts/AlmaroseSemibold/font.woff') format('woff');
+  font-weight: 500;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mulish:wght@900&display=swap');
+
+
 * {
   padding: 0;
   margin: 0;
-  font-family: poppins;
+  font-family: Almarose-Regular;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  -webkit-tap-highlight-color: transparent;
 }
+
 
 span,
 li,
@@ -33,6 +47,7 @@ body {
   transition: width 300ms;
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   box-shadow: 2px 2px 0px #d5d5d5,
     -2px -2px 0px #ffffff;
@@ -91,10 +106,10 @@ body {
     width: 100%;
   }
 
-  .has-sub {
+  .li {
     padding: 0 10px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     border-radius: 10px;
     list-style: none;
     display: flex;
@@ -113,13 +128,10 @@ body {
       z-index: 1;
 
       &:hover {
-        background: $gray;
-        box-shadow: 2px 2px 0px #d5d5d5,
-          -2px -2px 0px #ffffff;
-      }
-
-      &:hover .menu-title {
-        color: $black;
+        .menu-title,
+        .menu-icon i{
+          color: $black;
+        }
       }
     }
 
@@ -138,8 +150,8 @@ body {
 
     .menu-title {
       opacity: 1;
-      font-size: 14px;
-      font-weight: 400;
+      font-size: 13px;
+      font-weight: 600;
       line-height: none;
       transform: translate(0);
     }
@@ -155,9 +167,12 @@ body {
         font-size: 11px;
       }
     }
+    @media(max-width: 769px){
+      margin-bottom: 10px !important;
+    }
   }
 
-  .has-sub.active {
+  .li.active {
     .menu {
       background: $gray;
       box-shadow: 2px 2px 0px #d5d5d5,
@@ -187,7 +202,7 @@ body {
 
     .sidebar-item{
       :last-child{
-        margin-bottom: -23px;
+        margin-bottom: -17px;
       }
     }
     li {
@@ -279,13 +294,15 @@ body {
   padding: 0;
 }
 
+
+
 .color-mode-wrapper {
   position: absolute;
-  margin-top: 50px;
   width: 90%;
   left: 50%;
   bottom: 15px;
-  transform: translateX(-52%);
+  transform: translateX(-50%);
+  z-index: 100;
 }
 
 .relative{
@@ -368,7 +385,7 @@ a
     background: $dark !important;
   }
 
-  .has-sub.active {
+  .li.active {
     .menu {
       background: $deeper-gray;
       box-shadow:  -2px -2px 0px  #2a3135,
@@ -398,6 +415,10 @@ a
       //        1px -1px 0px #3e454d !important;
       box-shadow: none !important;
     }
+  }
+
+  .dropdown{
+    background: $dark !important;
   }
 
   .dropdown::before {
@@ -467,7 +488,7 @@ a
   }
 
   .logo {
-    transform: translateX(-100px);
+    transform: translateX(-48px);
     position: relative;
 
     .minified {
@@ -481,15 +502,33 @@ a
     }
   }
 
-  .sidebar-item {
-    display: none;
+.dropdown{
+  width: 150px;
+  padding: 10px 20px;
+  margin: 0;
+  border-radius: 10px;
+  top: 25px;
+  left: 80px;
+  background: $white;
+  .sidebar-item{
+    :last-child{
+      margin-bottom: 0;
+    }
   }
+  &::before{
+    left: 10px;
+  }
+  
+}
 
   width: 50px;
 
-  .has-sub {
+  .li {
     margin-top: 20px;
     padding-bottom: 40px;
+    @media(max-width: 769px){
+      padding-bottom: 25px;
+    }
 
     .menu {
       justify-content: center;
@@ -501,7 +540,7 @@ a
       }
 
       .menu-icon {
-        margin-right: 10px;
+        margin-right: 5px;
 
         i {
           font-size: 20px;
@@ -514,7 +553,6 @@ a
 
       }
 
-
       .dropdown-arrow {
         display: none;
       }
@@ -526,7 +564,7 @@ a
     }
 
     .dropdown-on-collapse {
-      display: block;
+      
       z-index: 1;
     }
     .dropdown-on-collapse:hover{
@@ -552,6 +590,10 @@ a
 
 
   .color-mode-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
     width: 90%;
     display: grid;
     place-items: center;
@@ -569,7 +611,8 @@ a
 
       i {
         font-size: 17px;
-        margin-right: 2px;
+        line-height: 0;
+        margin-top: 1px;
         color: $deeper-gray;
       }
     }
@@ -590,7 +633,7 @@ a
     }
   }
 
-  .has-sub.active {
+  .li.active {
     .menu {
       background: none !important;
     }
